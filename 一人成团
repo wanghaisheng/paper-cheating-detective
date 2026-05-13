@@ -1,0 +1,479 @@
+很好，这一步你已经从“做工具”进入到**做系统级产品（OS级）**了。
+我帮你把 **“学术侦探项目”完整映射到 RAMS / GAO / RVGS / OEE 框架**，而且是**能直接指导产品设计的版本**。
+
+---
+
+# 🧠 一、先把问题说透（非常关键）
+
+你的项目本质不是：
+
+> ❌ “论文检测工具”
+
+而是：
+
+> 🕵️ **“科研不端取证组织（AI-native investigation org）”**
+
+---
+
+👉 所以在 RAMS 里，它不是一个 agent
+而是：
+
+> **一个会自动组建“审稿委员会/调查团队”的系统**
+
+---
+
+# 🧠 二、World Interface Layer（任务入口）
+
+---
+
+## 👤 用户真实输入（不是理想化）
+
+* “这篇论文有问题吗？”
+* “帮我review这篇paper”
+* “这个结果太完美了，帮我看看”
+* “这个学生论文像AI写的”
+
+---
+
+## 🧠 系统标准化任务
+
+```text
+Task:
+  type: academic_investigation
+  target: paper/pdf
+  goal:
+    - detect anomalies
+    - generate evidence
+  constraints:
+    time: short (review context)
+    explainability: high
+```
+
+---
+
+👉 核心不是检测，而是：
+
+> ❗**evidence generation（证据生成）**
+
+---
+
+# 🧠 三、GAO：任务 → 调查图（核心）
+
+---
+
+## 🧠 GAO做的事：
+
+> 把论文分析 → 编译成“调查DAG”
+
+---
+
+## 🔥 Investigation Graph
+
+```text
+Paper Investigation
+   ↓
+1. text integrity analysis
+2. image forensics
+3. data consistency check
+4. citation/network analysis
+5. authorship/style analysis
+6. risk synthesis
+```
+
+---
+
+👉 注意：
+
+这不是 checklist，而是：
+
+> ❗**多模态取证图（investigation graph）**
+
+---
+
+# 🧠 四、RVGS：自动组建“学术侦探团队” 🔥
+
+---
+
+## 🧠 系统从 RVGS 抽子图：
+
+```text
+TEAM_Academic_Detective_v1:
+
+  roles:
+    - Plagiarism Analyst
+    - Image Forensics Expert
+    - Data Auditor
+    - Citation Investigator
+    - Authorship Analyst
+    - Chief Reviewer (Synthesizer)
+```
+
+---
+
+## 🧠 每个角色对应现实世界：
+
+| Role                  | 对标现实  |
+| --------------------- | ----- |
+| Plagiarism Analyst    | 查重专家  |
+| Image Forensics       | 图像取证  |
+| Data Auditor          | 统计审稿人 |
+| Citation Investigator | 引用分析  |
+| Chief Reviewer        | 审稿人   |
+
+---
+
+👉 本质：
+
+> ❗你不是在“调用模型”，而是在**模拟一个审稿委员会**
+
+---
+
+# 🧠 五、Role → Skill 映射（能力层）
+
+---
+
+## 🟢 Plagiarism Analyst
+
+```text
+- semantic_similarity_detection
+- cross-paper retrieval
+- paraphrase detection
+```
+
+---
+
+## 🔵 Image Forensics Expert
+
+```text
+- image_duplication_detection
+- transformation_invariance_matching
+- region_similarity
+```
+
+---
+
+## 🟡 Data Auditor
+
+```text
+- statistical_anomaly_detection
+- distribution_validation
+- p-hacking detection
+```
+
+---
+
+## 🟣 Citation Investigator
+
+```text
+- citation_graph_analysis
+- self-citation detection
+- cluster anomaly detection
+```
+
+---
+
+## 🔴 Chief Reviewer
+
+```text
+- evidence synthesis
+- risk scoring
+- report generation
+```
+
+---
+
+👉 核心：
+
+> ❗Skill 是“取证能力单元”，不是模型能力
+
+---
+
+# 🧠 六、Runtime Layer（执行层）
+
+---
+
+## 🧠 每个 Skill → runtime
+
+| Skill               | Runtime           |
+| ------------------- | ----------------- |
+| semantic similarity | embedding + FAISS |
+| image detection     | CV model / pHash  |
+| stats analysis      | Python (scipy)    |
+| reasoning           | GPT-5.5           |
+| graph analysis      | NetworkX          |
+
+---
+
+## 🧠 示例：
+
+```text
+Text Analysis → embedding + vector DB
+Image Analysis → CV pipeline
+Data Analysis → statistical engine
+Synthesis → LLM reasoning
+```
+
+---
+
+👉 本质：
+
+> ❗RAMS = **多计算系统编排器**
+
+---
+
+# 🧠 七、Execution（并行调查🔥）
+
+---
+
+```text
+TEAM executes:
+
+Plagiarism Analyst → finds similar text
+Image Expert → finds duplicated figures
+Data Auditor → flags statistical anomalies
+Citation Analyst → detects citation patterns
+```
+
+---
+
+然后：
+
+```text
+Chief Reviewer → aggregates evidence
+```
+
+---
+
+👉 本质：
+
+> ❗不是生成答案，而是“并行取证 + 汇总”
+
+---
+
+# 🧠 八、输出（关键差异点）
+
+---
+
+## ❌ 传统工具输出：
+
+* “相似度 23%”
+
+---
+
+## ✅ RAMS输出：
+
+```text
+Academic Investigation Report
+
+Risk Score: 78/100 ⚠️
+
+Findings:
+
+1. Text:
+- Section 2.3 similar to Paper X (0.89)
+
+2. Image:
+- Figure 4 duplicated from Figure 2 (rotated)
+
+3. Data:
+- Distribution too uniform (p < 0.01 anomaly)
+
+4. Citation:
+- 65% references from same cluster
+
+Conclusion:
+High likelihood of manipulation
+```
+
+---
+
+👉 核心：
+
+> ❗**证据链（Evidence Chain）**
+
+---
+
+# 🧠 九、OEE（进化机制，真正护城河🔥）
+
+---
+
+## 👤 用户反馈：
+
+* “误报太多”
+* “图像检测很准”
+* “数据分析不靠谱”
+
+---
+
+## 🧠 OEE触发：
+
+---
+
+### Skill mutation
+
+```text
+semantic_similarity_detection_v2:
+  + reduce false positives
+  + add context filtering
+```
+
+---
+
+### Role evolution
+
+```text
+Data Auditor_v2:
+  + domain-specific statistical rules
+```
+
+---
+
+### Team evolution
+
+```text
+TEAM_v2:
+  + add Domain Expert (biology / CS)
+```
+
+---
+
+👉 本质：
+
+> ❗系统在“进化侦探能力”，不是优化prompt
+
+---
+
+# 🧠 十、RVGS更新（组织记忆）
+
+---
+
+```text
+RVGS:
+
+store:
+  - effective investigation patterns
+  - successful detection strategies
+  - domain-specific rules
+```
+
+---
+
+👉 结果：
+
+下一次分析：
+
+* 更快
+* 更准
+* 更符合领域
+
+---
+
+# 🧠 十一、完整闭环（学术侦探OS）
+
+---
+
+```text
+USER submits paper
+   ↓
+GAO → investigation graph
+   ↓
+RVGS → detective team
+   ↓
+Role → Skill mapping
+   ↓
+Runtime execution
+   ↓
+Evidence generation
+   ↓
+Report output
+   ↓
+User feedback
+   ↓
+OEE mutation
+   ↓
+RVGS update
+   ↓
+System improves
+```
+
+---
+
+# 🧠 十二、最关键一句话（项目本质）
+
+---
+
+> 🕵️ 学术侦探系统不是一个“检测工具”，而是一个**可进化的科研取证组织操作系统**。
+
+---
+
+# 🚀 十三、和你MVP的关系（落地建议）
+
+你现在的MVP其实是：
+
+```text
+Plagiarism Analyst + Image Expert + simple Reviewer
+```
+
+👉 这是：
+
+> **TEAM_v0（非常合理的起点）**
+
+---
+
+# 🧠 下一步升级路径（非常清晰）
+
+## v1
+
+* 文本 + 图像 + 报告
+
+## v2
+
+* 加 Data Auditor（统计）
+
+## v3
+
+* 加 Citation Investigator
+
+## v4
+
+* 加 Domain Expert（最强）
+
+---
+
+# 🧠 最后一句（产品方向判断）
+
+如果你按 RAMS 做：
+
+👉 你在做：
+
+> 🧠 “科研审稿基础设施”
+
+如果你不按：
+
+👉 你在做：
+
+> ❌ “又一个查重工具”
+
+---
+
+如果你下一步要继续，我建议直接做这个👇
+
+## 🔥 “Academic Investigation DSL（调查任务编译语言）”
+
+把：
+
+* Paper → Investigation Graph
+* Graph → Team
+* Team → Execution
+
+全部标准化
+
+👉 一旦你做到这一步：
+
+你这个项目就从：
+
+> 🛠 工具
+
+变成：
+
+> 🚀 **学术审稿操作系统（Review OS）**
